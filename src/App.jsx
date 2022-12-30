@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const CRYPTOCURRENCY_LIST_API_URL = `${import.meta.env.VITE_API_URL}assets`;
 
@@ -7,10 +8,10 @@ function App() {
   const [criptos, setCriptos] = useState();
 
   useEffect(() => {
-    fetch(CRYPTOCURRENCY_LIST_API_URL)
-      .then(response => response.json())
-      .then(data => {
-        setCriptos(data.data);
+
+    axios.get(CRYPTOCURRENCY_LIST_API_URL)      
+      .then((data) => {        
+        setCriptos(data.data.data);
       })
       .catch(() => {
         console.error('Peticion Fallo');
