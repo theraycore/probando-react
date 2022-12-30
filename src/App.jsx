@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const CRYPTOCURRENCY_LIST_API_URL = 'https://api.coincap.io/v2/assets';
+const CRYPTOCURRENCY_LIST_API_URL = `${import.meta.env.VITE_API_URL}assets`;
 
 function App() {
 
